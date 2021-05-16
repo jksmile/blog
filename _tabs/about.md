@@ -15,5 +15,3 @@ order: 4
     JK's-MacBook-Pro:~ JK$ 希望我们是技术的守夜人，是黑暗中的利剑、是长城上的守卫，今夜如此，夜夜皆然。
 
 ***
-
-![code](/assets/img/public/code.png "code")
