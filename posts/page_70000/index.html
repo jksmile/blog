@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="en-US" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="pv-cache-enabled" content="false"><meta name="generator" content="Jekyll v4.3.3" /><meta property="og:title" content="风控系统架构演进" /><meta name="author" content="J.K" /><meta property="og:locale" content="en_US" /><meta name="description" content="如何拿到目标offer？" /><meta property="og:description" content="如何拿到目标offer？" /><link rel="canonical" href="https://blog.xujinkai.com/posts/page_70000/" /><meta property="og:url" content="https://blog.xujinkai.com/posts/page_70000/" /><meta property="og:site_name" content="JK’s Blog" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2022-10-31T12:00:00+08:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="风控系统架构演进" /><meta name="google-site-verification" content="google_meta_tag_verification" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"J.K"},"dateModified":"2022-10-31T12:00:00+08:00","datePublished":"2022-10-31T12:00:00+08:00","description":"如何拿到目标offer？","headline":"风控系统架构演进","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.xujinkai.com/posts/page_70000/"},"url":"https://blog.xujinkai.com/posts/page_70000/"}</script><title>风控系统架构演进 | JK's Blog</title><link rel="shortcut icon" href="/assets/img/favicons/favicon.ico" type="image/x-icon"><link rel="icon" href="/assets/img/favicons/favicon.ico" type="image/x-icon"><link rel="apple-touch-icon" href="/assets/img/favicons/apple-icon.png"><link rel="apple-touch-icon" href="/assets/img/favicons/apple-icon-precomposed.png"><link rel="apple-touch-icon" sizes="57x57" href="/assets/img/favicons/apple-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="/assets/img/favicons/apple-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicons/apple-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="/assets/img/favicons/apple-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicons/apple-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="/assets/img/favicons/apple-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicons/apple-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="/assets/img/favicons/apple-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-icon-180x180.png"><link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicons/android-icon-192x192.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicons/favicon-96x96.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png"><link rel="manifest" href="/assets/img/favicons/manifest.json"><meta name='msapplication-config' content='/assets/img/favicons/browserconfig.xml'><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/assets/img/favicons/ms-icon-144x144.png"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://fonts.gstatic.com"><link rel="preconnect" href="https://www.google-analytics.com" crossorigin="use-credentials"><link rel="dns-prefetch" href="https://www.google-analytics.com"><link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="preconnect" href="cdn.jsdelivr.net"><link rel="dns-prefetch" href="cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha256-LA89z+k9fjgMKQ/kq4OO2Mrf8VltYml/VES+Rg0fh20=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css"> <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script> <script defer src="https://cdn.jsdelivr.net/combine/npm/popper.js@1.15.0,npm/bootstrap@4/dist/js/bootstrap.min.js"></script> <script defer src="/assets/js/dist/post.min.js"></script> <script defer src="/app.js"></script> <script defer src="https://www.googletagmanager.com/gtag/js?id="></script> <script> document.addEventListener("DOMContentLoaded", function(event) { window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', ''); }); </script><body data-spy="scroll" data-target="#toc"><div id="sidebar" class="d-flex flex-column align-items-end"><div class="profile-wrapper text-center"><div id="avatar"> <a href="/" alt="avatar" class="mx-auto"> <img src="/assets/img/avatar/avatar_002.png" alt="avatar" onerror="this.style.display='none'"> </a></div><div class="site-title mt-3"> <a href="/">JK's Blog</a></div><div class="site-subtitle font-italic">因为分享，所以精彩！</div></div><ul class="w-100"><li class="nav-item"> <a href="/" class="nav-link"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a><li class="nav-item"> <a href="/categories/" class="nav-link"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a><li class="nav-item"> <a href="/tags/" class="nav-link"> <i class="fa-fw fas fa-tags ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a><li class="nav-item"> <a href="/archives/" class="nav-link"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a><li class="nav-item"> <a href="/about/" class="nav-link"> <i class="fa-fw fas fa-info ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a></ul><div class="sidebar-bottom mt-auto d-flex flex-wrap justify-content-center"> <a href="https://github.com/jksmile" aria-label="github" class="order-3" target="_blank" rel="noopener"> <i class="fab fa-github-alt"></i> </a> <a href="https://twitter.com/" aria-label="twitter" class="order-4" target="_blank" rel="noopener"> <i class="fab fa-twitter"></i> </a> <a href=" javascript:location.href = 'mailto:' + ['xjksmile','gmail.com'].join('@')" aria-label="email" class="order-5" > <i class="fas fa-envelope"></i> </a> <a href="/feed.xml" aria-label="rss" class="order-6" > <i class="fas fa-rss"></i> </a> <span class="icon-border order-2"></span> <span id="mode-toggle-wrapper" class="order-1"> <i class="mode-toggle fas fa-adjust"></i> <script type="text/javascript"> class ModeToggle { static get MODE_KEY() { return "mode"; } static get DARK_MODE() { return "dark"; } static get LIGHT_MODE() { return "light"; } constructor() { if (this.hasMode) { if (this.isDarkMode) { if (!this.isSysDarkPrefer) { this.setDark(); } } else { if (this.isSysDarkPrefer) { this.setLight(); } } } var self = this; /* always follow the system prefers */ this.sysDarkPrefers.addListener(function() { if (self.hasMode) { if (self.isDarkMode) { if (!self.isSysDarkPrefer) { self.setDark(); } } else { if (self.isSysDarkPrefer) { self.setLight(); } } self.clearMode(); } self.updateMermaid(); }); } /* constructor() */ setDark() { $('html').attr(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); } setLight() { $('html').attr(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); } clearMode() { $('html').removeAttr(ModeToggle.MODE_KEY); sessionStorage.removeItem(ModeToggle.MODE_KEY); } get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); } get isSysDarkPrefer() { return this.sysDarkPrefers.matches; } get isDarkMode() { return this.mode == ModeToggle.DARK_MODE; } get isLightMode() { return this.mode == ModeToggle.LIGHT_MODE; } get hasMode() { return this.mode != null; } get mode() { return sessionStorage.getItem(ModeToggle.MODE_KEY); } /* get the current mode on screen */ get modeStatus() { if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer) ) { return ModeToggle.DARK_MODE; } else { return ModeToggle.LIGHT_MODE; } } updateMermaid() { if (typeof mermaid !== "undefined") { let expectedTheme = (this.modeStatus === ModeToggle.DARK_MODE? "dark" : "default"); let config = { theme: expectedTheme }; /* re-render the SVG › <https://github.com/mermaid-js/mermaid/issues/311#issuecomment-332557344> */ $(".mermaid").each(function() { let svgCode = $(this).prev().children().html(); $(this).removeAttr("data-processed"); $(this).html(svgCode); }); mermaid.initialize(config); mermaid.init(undefined, ".mermaid"); } } flipMode() { if (this.hasMode) { if (this.isSysDarkPrefer) { if (this.isLightMode) { this.clearMode(); } else { this.setLight(); } } else { if (this.isDarkMode) { this.clearMode(); } else { this.setDark(); } } } else { if (this.isSysDarkPrefer) { this.setLight(); } else { this.setDark(); } } this.updateMermaid(); } /* flipMode() */ } /* ModeToggle */ let toggle = new ModeToggle(); $(".mode-toggle").click(function() { toggle.flipMode(); }); </script> </span></div></div><div id="topbar-wrapper" class="row justify-content-center topbar-down"><div id="topbar" class="col-11 d-flex h-100 align-items-center justify-content-between"> <span id="breadcrumb"> <span> <a href="/"> Posts </a> </span> <span>风控系统架构演进</span> </span> <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i><div id="topbar-title"> Post</div><i id="search-trigger" class="fas fa-search fa-fw"></i> <span id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" placeholder="Search..."> <i class="fa fa-times-circle fa-fw" id="search-cleaner"></i> </span> <span id="search-cancel" >Cancel</span></div></div><div id="main-wrapper"><div id="main"><div class="row"><div id="post-wrapper" class="col-12 col-lg-11 col-xl-8"><div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><h1 data-toc-skip>风控系统架构演进</h1><div class="post-meta text-muted d-flex flex-column"><div> <span class="semi-bold"> J.K </span> <span class="timeago " data-toggle="tooltip" data-placement="bottom" title="Mon, Oct 31, 2022, 12:00 PM +0800" prep="on" > Oct 31, 2022 <i class="unloaded">2022-10-31T12:00:00+08:00</i> </span></div><div> <span class="readtime" data-toggle="tooltip" data-placement="bottom" title="3123 words">17 min</span></div></div><div class="post-content"><h2 id="如何拿到目标offer">如何拿到目标offer？</h2><ul><li><p><a href="#preface">1.说在前面的话</a></p><li><p><a href="#preparation">2.准备工作</a></p><li><p><a href="#plan">3.实行计划</a></p><li><p><a href="#tip">4.面试技巧</a></p><li><p><a href="#summary">5.总结</a></p></ul><hr /><h3 id="preface" class="blueJK">1.说在前面的话</h3><hr /><p>一年一度的毕业季又要到了，有朋友、亲戚家孩子即将要就业了，时常有电话、微信联系我，问以下两问题：</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre>问题1： 我家孩子学的生物|化学... 能做你现在做的工作吗？
+
+问题2： 我家孩子学计算机的，怎么找一个好公司就业？
+</pre></table></code></div></div><p>对于以上两个问题，问题1是我经历过多次，反思最深的话题，不过今天晚上时间有限，我打算找个更合适的时间来谈问题1.</p><p>问题2是我今天要写这篇文章来解答的，即对科班出身的毕业生或者已经有IT工作经验的人，如何拿到目标OFFER？</p><p>我个人经历过面试次数大大小小也不少次，最近的一次拿到了阿里、百度、小米、京东四家OFFER，级别给的还算满意,所以我这</p><p>里也想给IT新手以及迷茫的你分享下自己的面经。</p><p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/assets/img/2016/offer1.png" alt="就业" title="就业" /></p><hr /><h3 id="preparation" class="blueJK">2.准备工作</h3><hr /><p>在面试前做足准备工作很重要，我想聊以下几点：</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre>Q1.【确定目标】哪家offer或者哪几家offer是我想拿的？
+
+Q2.【面试范围】目标公司面试官一般都会问到哪些技术问题？
+
+Q3.【基本功】数据结构+算法+开源项目
+
+Q4.【优秀项目】从业以来，自己感觉最拿得出手的项目，能很清楚的明白其中的各细节.
+</pre></table></code></div></div><p><strong>■ 对于Q1</strong>,我觉得是大家最会选择的，同时我觉得又是大家最不会选择的，特别是对新手.</p><p>最会选择是因为看大家的风向选择公司，最不会选择是因为没有看清自己的方向，即使拿了offer做的工作内容不是自己的发展方</p><p>向，浪费自己的能力。Q1这一点，我觉得很重要，确定了Q1这一点，你会发现自己想选择的公司寥寥无几！留给自己的机会不多。</p><p><strong>■ 对于Q2</strong>，了解目标公司的使用的技术很关键！一般面试会涉及到你对相关技术的了解。获取这方面信息的途径很多，比如：</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre>1.利用社交网络找到目标公司员工，通过社交聊天了解公司情况【女生用这招基本百发百中】；
+
+2.去一些面经分享网站，看看去参加面试的人都分享了什么【具体哪些网站我就不说了，以防广告嫌疑】；
+
+3.有条件的，可以有偿的通过网络约目标公司技术出来坐谈，能更详细的了解面试信息，可以走内推【还是钱有用】；
+</pre></table></code></div></div><p>通过以上途径获取面试流程、面试范围、公司文化、岗位职责、福利待遇等信息，当然最重要的还是获取面试流程、面试范围信息。</p><p>我觉得Q2是很重要的，要做到对面试范围问题的总结归纳，在实行计划的时候才能有针对性的去准备！</p><p><strong>■ 对于Q3</strong>，这方面应该是一些大公司面试官必会和你聊的，没有基本功就没有更远的发展，这可能是大公司的长远策略，所以</p><p>基本功是必须的！但这又是最麻烦的一点，基本功非短时间能达的，对于基本功很强的，可以显得比较从容，但对于基本功很弱的就</p><p>是一个高槛！ 数据结构、算法这两门功课，虽说是基本功但要理解通透也并不是件容易的事。刚才我们在Q2提到了对面试范围的归</p><p>纳总结就是为了对于基本功是强项的人提供一个范围，让我们有准备的去看一些相关资料。同时对于有经验的技术人对于开源项目的</p><p>深入一定会给你一个满满的惊喜！</p><p><strong>■ 对于Q4</strong>,相对于有经验的技术人，这一点也是沟通的必要环节，甚至对于应届生，特别是硕士生也一定会问你在学校的项目。</p><p>所以对于这个项目，不管是不是一个Team协作完成的，你都要对每个细节有所了解，最好对其中原理以及方案选择说得清道得明。</p><p>这样会大大的提升拿OFFER的机率。</p><p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/assets/img/2016/offer2.png" alt="study" title="study" /></p><hr /><h3 id="plan" class="blueJK">3.实行计划</h3><hr /><p>有了前面的准备调研基本，我们接下来就是要做一个合理的计划，能让自己在相对较短的时间内有所提升。</p><p>1.通过归结总结，一般可以了解到面试官会问的基本功范围。在此推荐以下读本：</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre>《数据结构》（严蔚敏，吴伟明版 | 清华大学出版社）
+
+《算法》（第4版）
+
+《数据结构与算法分析》[美] 韦斯 著；冯舜玺 译
+</pre></table></code></div></div><p>我觉得这两本读本基本上把基本功覆盖了。时间有限的话可以根据归纳总结的点选择书本中对应的章节深入进去。</p><p>我觉得看这两本书得带支笔，多推算下其中的细节实现。</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre><td class="rouge-code"><pre>如何有效率的吸收知识点？
+
+1.第一遍概览，了解书本大体框架及章节安排和其中思想；
+
+  我觉得第一遍看的过紧，会导致你看不下去，直接放弃。
+
+2.第二遍章节细看，跳过一时难以理解的段落，保证进度；
+
+  这样可以吸收基本知识，对于难点可以有了解。
+
+3.挑出难点未理解点，个个击破；
+
+  有了一个基础知识垫底，更有信心去攻克难点，而且非常有成就感！
+</pre></table></code></div></div><p>以上是我对于基本功的推荐及在技术读本中个人阅读经验，可能不适合每个人，但可以借鉴琢磨出自己的方式。</p><p>2.拿出自己感觉很不错的经验项目，对各个工具的应用细节进行分析；</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre>其实这一点比较麻烦，不是每个人都很幸运参与高并发高PV的项目，参与的未必了解各个细节实现，包括对开源工具的了解。
+
+所以基本自己所经手的项目，选一个优秀的出来去好好看看当初的盲目码砖是否真的有高手在前面带路，让你不偏轨！
+
+基于自己的项目，可以更好的去了解，在面试过程中也能说出所以然来，背景、实现、难点、方案。
+
+对于优秀项目这一点，后面我要写的带着目的去面试会有机会帮助你从不同的角度了解你的项目。
+</pre></table></code></div></div><p>3.手写代码的能力；</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre>这个不得不练习，习惯于敲键盘加上有IDE的提示，觉得写一段算法很easy啊！
+
+这个还真不好说，一般三轮面试，总有一两轮全你一支笔、几张纸，然后就让你在那写一些算法，分析出算法原理的同时
+
+让你给你详细列出演算时间复杂度的过程。
+
+这个你还真不得不准备，在看《算法》时带上心算的准备，然后在纸上一遍一遍的写码...
+</pre></table></code></div></div><p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/assets/img/2016/offer3.png" alt="code" title="code" /></p><hr /><h3 id="tip" class="blueJK">4.面试技巧</h3><hr /><p>面试中的成功或失败都挺正常的，准备充分可能更有机率的拿到OFFER，有时候是运气也是心态。</p><p>但有些面试技巧是你不得不去掌握的，比如：</p><p>1.有效率的沟通，针对问题简明扼要的回答，同时也可以提出相关亮点；</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre>简单来说就是不要说废话，说废话拉时间未必是个好策略，让面试官了解你的信息不多，也不是我们想要的结果。
+
+针对问题有根据有立场的去思辨，当然这个是基于你的实战能力来决定你的回答水平的。
+</pre></table></code></div></div><p>2.将面试官司带到自己擅长的领域里，你可以发挥的更好；</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre><td class="rouge-code"><pre>这一个我觉得很重要啊！面试官未必就是很有水平的人，更必要是门门精通的全才。
+
+所以可以以一个聊的话题作为切入点，将面试官带到自己擅长的领域里嗨！
+
+比如我自认为自己在数据库领域里很应手，我就将数据库的索引机制、优化策略、性能提升等等大餐一一奉上！
+
+如果面试官不是很擅长你的领域，他会觉得你在这方面确实不错！
+
+如果面试官恰好在你擅长的领域也很牛，那么我觉得你们聊下去的结果一定是惺惺相惜！
+</pre></table></code></div></div><p>3.面试目标公司前，最好先面试几家级别较低或者相当的公司，进入面试节奏；</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre><td class="rouge-code"><pre>这个真的很重要！
+
+如果我想去A公司，我一定在有准备的情况下先面一些其它公司，让我进入面试的节奏中。
+
+有什么好处？
+
+刚才在【3.实行计划】的第2点提到优秀项目时，我提到了不一样的角度看待项目，面试非目标公司的一大好处就是你可以
+
+练习自己很好的说出自己的项目，同时对方的质疑也会让你思考的更多，更好的是在对方的质疑中你能得到比原方案更好的
+
+解决方案！ 这就是在自我反思与有经验的人聊项目时给自己完善一个更好的项目方案！
+</pre></table></code></div></div><p>4.带着目的去试水；</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre><td class="rouge-code"><pre>还是面试非目标过程中，你可以更深入的理解你欠缺的基本功啊！
+
+一般在三轮面试过程中，总有面试官会戳中你的盲区，这时你可以说一点自己知道的，对于不知道的你可以向面试官请教。
+
+我觉得一般面试官会非常乐意授之以渔的，因为优于对手的心理表现+自我价值体现的两方面驱动。
+
+在面试非目标公司时，是非常有价值的试水！！！
+
+你的心态是完全放开的【不通过也没关系】，你的目的是很明确的【带着疑问去面试】。
+
+但心态放开并不是无所谓，一样要严谨对待，带着疑问的同时是对自己准备工作的的检验和提升。
+</pre></table></code></div></div><hr /><h3 id="summary" class="blueJK">5.总结</h3><hr /><div class="language-plaintext highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre>limit[实力X+准备X+技巧X+心态X]  = OFFER.
+X-&gt;100
+</pre></table></code></div></div><p><strong>实行计划一定要保持无知之心去认真做好每一点细节！</strong></p><p>以上是我个人对面IT面试的一些建议吧。在此也非常感谢在职场上给我指点迷津的导师们！</p><p>我就不祝大家好运了，因为大家都是有实力的人嘛,根本不需要运气！哈哈…</p><hr /></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw mr-1"></i> <a href='/categories/%E9%A3%8E%E6%8E%A7/'>风控</a></div><div class="post-tags"> <i class="fa fa-tags fa-fw mr-1"></i> <a href="/tags/%E9%A3%8E%E6%8E%A7/" class="post-tag no-text-decoration" >风控</a> <a href="/tags/%E6%9E%B6%E6%9E%84/" class="post-tag no-text-decoration" >架构</a></div><div class="post-tail-bottom d-flex justify-content-between align-items-center mt-3 pt-5 pb-2"><div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div><div class="share-wrapper"> <span class="share-label text-muted mr-1">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=风控系统架构演进 - JK's Blog&url=https://blog.xujinkai.com/posts/page_70000/" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank" rel="noopener" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=风控系统架构演进 - JK's Blog&u=https://blog.xujinkai.com/posts/page_70000/" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank" rel="noopener" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <a href="https://telegram.me/share?text=风控系统架构演进 - JK's Blog&url=https://blog.xujinkai.com/posts/page_70000/" data-toggle="tooltip" data-placement="top" title="Telegram" target="_blank" rel="noopener" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <i class="fa-fw fas fa-link small" onclick="copyLink()" data-toggle="tooltip" data-placement="top" title="Copy link"></i> </span></div></div></div></div></div><div id="panel-wrapper" class="col-xl-3 pl-2 text-muted topbar-down"><div class="access"><div id="access-lastmod" class="post"> <span>Recent Update</span><ul class="post-content pl-0 pb-1 ml-1 mt-2"><li><a href="/posts/page_20005/">【交换排序】快速排序</a><li><a href="/posts/page_90002/">浅谈合格的技术面试官</a><li><a href="/posts/page_80000/">Log-Studio工程思考与实践</a><li><a href="/posts/page_90001/">优秀的Coder如何避开坑？</a><li><a href="/posts/page_30019/">【行为型】命令模式详解</a></ul></div><div id="access-tags"> <span>Trending Tags</span><div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a> <a class="post-tag" href="/tags/%E7%AE%97%E6%B3%95/">算法</a> <a class="post-tag" href="/tags/%E8%A1%8C%E4%B8%BA%E5%9E%8B/">行为型</a> <a class="post-tag" href="/tags/%E6%8E%92%E5%BA%8F/">排序</a> <a class="post-tag" href="/tags/%E7%BB%93%E6%9E%84%E5%9E%8B/">结构型</a> <a class="post-tag" href="/tags/%E5%88%9B%E5%BB%BA%E5%9E%8B/">创建型</a> <a class="post-tag" href="/tags/%E6%80%BB%E7%BB%93/">总结</a> <a class="post-tag" href="/tags/%E5%AE%9A%E4%B9%89/">定义</a> <a class="post-tag" href="/tags/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/">算法分析</a> <a class="post-tag" href="/tags/%E5%9B%BE/">图</a></div></div></div><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.js"></script><div id="toc-wrapper" class="pl-0 pr-4 mb-5"> <span class="pl-3 pt-2 mb-2">Contents</span><nav id="toc" data-toggle="toc"></nav></div></div></div><div class="row"><div class="col-12 col-lg-11 col-xl-8"><div id="post-extend-wrapper" class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><div id="related-posts" class="mt-5 mb-2 mb-sm-4"><h3 class="pt-2 mt-1 mb-4 ml-1" data-toc-skip>Further Reading</h3><div class="card-deck mb-4"><div class="card"> <a href="/posts/page_90002/"><div class="card-body"> <span class="timeago small" > May 14, 2021 <i class="unloaded">2021-05-14T12:00:00+08:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>浅谈合格的技术面试官</h3><div class="text-muted small"><p> 浅谈合格的技术面试官 1.说在前面的话 职场生涯来来往往，作为职场中的一名候选人，同时也担任过面试官角色的我，今天想聊聊我对如何成为一名合格面试官这个话题的个人见解。 担任面试官拥有候选人的“生杀大权”，这背后更多的是一份沉甸甸的责任，同时面试不仅仅是面试候选人，也是面试官专业素质的体现，更是公司对外的一扇窗。 在我作为面试官的经历中，担任过一面、二面、三面，在找到很多优秀队友的背后...</p></div></div></a></div><div class="card"> <a href="/posts/page_80000/"><div class="card-body"> <span class="timeago small" > Apr 12, 2021 <i class="unloaded">2021-04-12T15:00:00+08:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Log-Studio工程思考与实践</h3><div class="text-muted small"><p> 1.背景现状 ►► 近些年随着容器化的普及应用，架构体系从微服务、云原生步步升级，工程日志不再是简简单单的纠查排错运维。更多的是承载着Logging、Tracing、Metrics、 Topology等方面的任务。经过大量的工程实践，以ELK为代表的日志处理方案几乎完美地整合了日志抓取、搜索和展示几个方面的需求，是目前业界最流行的日志处理 解决方案。在诸多工程项目应用中，在数据处理环境，主...</p></div></div></a></div><div class="card"> <a href="/posts/page_90000/"><div class="card-body"> <span class="timeago small" > Jul 9, 2016 <i class="unloaded">2016-07-09T23:02:00+08:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>如何拿到目标offer？</h3><div class="text-muted small"><p> 如何拿到目标offer？ 1.说在前面的话 2.准备工作 3.实行计划 4.面试技巧 5.总结 1.说在前面的话 一年一度的毕业季又要到了，有朋友、亲戚家孩子即将要就业了，时常有电话、微信联系我，问以下两问题： 问题1： 我家孩子学的生物|化学... 能做你现在做的工作吗？...</p></div></div></a></div></div></div><div class="post-navigation d-flex justify-content-between"> <a href="/posts/page_90002/" class="btn btn-outline-primary" prompt="Older"><p>浅谈合格的技术面试官</p></a> <span class="btn btn-outline-primary disabled" prompt="Newer"><p>-</p></span></div></div></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script> <script type="text/javascript"> const imgs = document.querySelectorAll('.post-content img'); const observer = lozad(imgs); observer.observe(); </script><footer class="d-flex w-100 justify-content-center"><div class="d-flex justify-content-between align-items-center"><div class="footer-left"><p class="mb-0"> © 2024 <a href="https://github.com/jksmile">Jinkai.Xu</a>. <span data-toggle="tooltip" data-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.">Some rights reserved.</span></p></div><div class="footer-right"><p class="mb-0"> Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.</p></div></div></footer></div><div id="search-result-wrapper" class="d-flex justify-content-center unloaded"><div class="col-12 col-sm-11 post-content"><div id="search-hints"><h4 class="text-muted mb-4">Trending Tags</h4><a class="post-tag" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a> <a class="post-tag" href="/tags/%E7%AE%97%E6%B3%95/">算法</a> <a class="post-tag" href="/tags/%E8%A1%8C%E4%B8%BA%E5%9E%8B/">行为型</a> <a class="post-tag" href="/tags/%E6%8E%92%E5%BA%8F/">排序</a> <a class="post-tag" href="/tags/%E7%BB%93%E6%9E%84%E5%9E%8B/">结构型</a> <a class="post-tag" href="/tags/%E5%88%9B%E5%BB%BA%E5%9E%8B/">创建型</a> <a class="post-tag" href="/tags/%E6%80%BB%E7%BB%93/">总结</a> <a class="post-tag" href="/tags/%E5%AE%9A%E4%B9%89/">定义</a> <a class="post-tag" href="/tags/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/">算法分析</a> <a class="post-tag" href="/tags/%E5%9B%BE/">图</a></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><div id="mask"></div><a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button"> <i class="fas fa-angle-up"></i> </a> <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js"></script> <script> SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/assets/js/data/search.json', searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0"> <a href="https://blog.xujinkai.com{url}">{title}</a><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"> {categories} {tags}</div><p>{snippet}</p></div>', noResultsText: '<p class="mt-5">Oops! No result founds.</p>', templateMiddleware: function(prop, value, template) { if (prop === 'categories') { if (value === '') { return `${value}`; } else { return `<div class="mr-sm-4"><i class="far fa-folder fa-fw"></i>${value}</div>`; } } if (prop === 'tags') { if (value === '') { return `${value}`; } else { return `<div><i class="fa fa-tag fa-fw"></i>${value}</div>`; } } } }); </script>
